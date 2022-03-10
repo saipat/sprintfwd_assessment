@@ -63,3 +63,1790 @@ Migrating to AddFieldsToProjects (20220309190627)
   [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4014365143816943475)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-03-10 10:25:59 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.0ms | Allocations: 679)
+Completed 200 OK in 30ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 6530)
+
+
+Started GET "/members" for ::1 at 2022-03-10 10:26:23 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/members"):
+  
+Started GET "/members" for ::1 at 2022-03-10 10:27:11 -0800
+Processing by MembersController#index as */*
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3629)
+
+
+
+NameError - undefined local variable or method `members' for #<MembersController:0x000000000113c8>
+Did you mean?  members_url:
+  app/controllers/members_controller.rb:19:in `index'
+
+Started GET "/members" for ::1 at 2022-03-10 10:28:54 -0800
+Processing by MembersController#index as */*
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 4237)
+
+
+
+ArgumentError - Unknown key: :optional. Valid keys are: :class_name, :anonymous_class, :primary_key, :foreign_key, :dependent, :validate, :inverse_of, :strict_loading, :autosave, :before_add, :after_add, :before_remove, :after_remove, :extend, :counter_cache, :join_table, :index_errors:
+  app/models/member.rb:10:in `<class:Member>'
+  app/models/member.rb:1:in `<main>'
+  app/controllers/members_controller.rb:19:in `index'
+
+Started GET "/members" for ::1 at 2022-03-10 10:31:06 -0800
+Processing by MembersController#index as */*
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 5865)
+
+
+
+NameError - undefined local variable or method `members' for #<MembersController:0x0000000001b350>
+Did you mean?  @members:
+  app/controllers/members_controller.rb:20:in `index'
+
+Started GET "/members" for ::1 at 2022-03-10 10:46:32 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (2.1ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 151ms (Views: 144.8ms | ActiveRecord: 12.4ms | Allocations: 5223)
+
+
+Started GET "/members" for ::1 at 2022-03-10 10:49:34 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 703)
+
+
+Started GET "/members" for ::1 at 2022-03-10 10:50:26 -0800
+Processing by MembersController#index as */*
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2384)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mMember Delete All (5.2ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mMember Delete All (0.6ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4014365143816943475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForeignKeyTeamToMember (20220310185350)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4014365143816943475)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4014365143816943475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForeignKeyTeamToMember (20220310185350)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.2ms)[0m  [1m[35mALTER TABLE "members" ADD "team_id" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220310185350"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4014365143816943475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/members" for ::1 at 2022-03-10 10:58:00 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.9ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 9ms (Views: 1.4ms | ActiveRecord: 0.9ms | Allocations: 2983)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.3ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.8ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 18:59:31.264464"], ["updated_at", "2022-03-10 18:59:31.264464"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.5ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Create (0.8ms)[0m  [1m[32mINSERT INTO "members" ("id", "first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["first_name", "John"], ["last_name", "Doe"], ["city", "Gater"], ["state", "Oh!"], ["country", "Cfusion"], ["created_at", "2022-03-10 18:59:31.305719"], ["updated_at", "2022-03-10 18:59:31.305719"], ["team_id", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/members" for ::1 at 2022-03-10 10:59:36 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 32ms (Views: 21.3ms | ActiveRecord: 9.6ms | Allocations: 10497)
+
+
+Started GET "/members" for ::1 at 2022-03-10 11:00:19 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 5.9ms | Allocations: 4792)
+
+
+Started GET "/members/1" for ::1 at 2022-03-10 11:00:41 -0800
+Processing by MembersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:24:in `show'
+Completed 200 OK in 17ms (Views: 0.6ms | ActiveRecord: 6.1ms | Allocations: 8453)
+
+
+Started GET "/members/0" for ::1 at 2022-03-10 11:00:46 -0800
+Processing by MembersController#show as */*
+  Parameters: {"id"=>"0"}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:24:in `show'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms | Allocations: 1334)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Member with 'id'=0:
+  app/controllers/members_controller.rb:24:in `show'
+
+Started GET "/members/1" for ::1 at 2022-03-10 11:00:50 -0800
+Processing by MembersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:24:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 713)
+
+
+Started GET "/members/1" for ::1 at 2022-03-10 11:00:57 -0800
+Processing by MembersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:24:in `show'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 6.9ms | Allocations: 9130)
+
+
+
+NoMethodError - undefined method `name' for #<Member:0x00007f96910ee370>:
+  app/controllers/members_controller.rb:25:in `show'
+
+Started GET "/members/1" for ::1 at 2022-03-10 11:01:06 -0800
+Processing by MembersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:24:in `show'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 5.5ms | Allocations: 5909)
+
+
+Started PATCH "/members/1?member[first_name]=%22JJ%22" for ::1 at 2022-03-10 11:01:50 -0800
+Processing by MembersController#update as */*
+  Parameters: {"member"=>{"first_name"=>"\"JJ\""}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 913)
+
+
+
+ActionController::InvalidAuthenticityToken - Can't verify CSRF token authenticity.:
+
+Started PATCH "/members/1?member[first_name]=%22JJ%22" for ::1 at 2022-03-10 11:03:12 -0800
+Processing by MembersController#update as */*
+  Parameters: {"member"=>{"first_name"=>"\"JJ\""}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 844)
+
+
+
+ActionController::InvalidAuthenticityToken - Can't verify CSRF token authenticity.:
+
+Started PATCH "/members/1?member[first_name]=%22JJ%22" for ::1 at 2022-03-10 11:03:31 -0800
+
+NoMethodError - undefined method `skip_before_filter' for ApplicationController:Class
+Did you mean?  skip_before_action:
+  app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<main>'
+  app/controllers/members_controller.rb:1:in `<main>'
+
+Started PATCH "/members/1?member[first_name]=%22JJ%22" for ::1 at 2022-03-10 11:03:43 -0800
+Processing by MembersController#update as */*
+  Parameters: {"member"=>{"first_name"=>"\"JJ\""}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 841)
+
+
+
+ActionController::InvalidAuthenticityToken - Can't verify CSRF token authenticity.:
+
+Started PATCH "/members/1?member[first_name]=%22JJ%22" for ::1 at 2022-03-10 11:03:46 -0800
+Processing by MembersController#update as */*
+  Parameters: {"member"=>{"first_name"=>"\"JJ\""}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 853)
+
+
+
+ActionController::InvalidAuthenticityToken - Can't verify CSRF token authenticity.:
+
+Started PATCH "/members/1?member[first_name]=%22JJ%22" for ::1 at 2022-03-10 11:04:19 -0800
+Processing by MembersController#update as */*
+  Parameters: {"member"=>{"first_name"=>"\"JJ\""}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 807)
+
+
+
+ActionController::InvalidAuthenticityToken - Can't verify CSRF token authenticity.:
+
+Started PATCH "/members/1?member[first_name]=%22JJ%22" for ::1 at 2022-03-10 11:06:37 -0800
+Processing by MembersController#update as */*
+  Parameters: {"member"=>{"first_name"=>"\"JJ\""}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 901)
+
+
+
+ActionController::InvalidAuthenticityToken - Can't verify CSRF token authenticity.:
+
+Started PATCH "/members/1?member[first_name]=%22JJ%22" for ::1 at 2022-03-10 11:07:51 -0800
+Processing by MembersController#update as */*
+  Parameters: {"member"=>{"first_name"=>"\"JJ\""}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 5.5ms | Allocations: 6895)
+
+
+
+ArgumentError - When assigning attributes, you must pass a hash as an argument, Member passed.:
+  app/controllers/members_controller.rb:31:in `update'
+
+Started PATCH "/members/1?member[first_name]=%22JJ%22" for ::1 at 2022-03-10 11:18:55 -0800
+Processing by MembersController#update as */*
+  Parameters: {"member"=>{"first_name"=>"\"JJ\""}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+Completed 400 Bad Request in 112ms (ActiveRecord: 10.2ms | Allocations: 8645)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: members
+Did you mean?  member:
+  app/controllers/members_controller.rb:46:in `member_params'
+  app/controllers/members_controller.rb:31:in `update'
+
+Started PATCH "/members/1?members[first_name]=%22JJ%22" for ::1 at 2022-03-10 11:19:17 -0800
+Processing by MembersController#update as */*
+  Parameters: {"members"=>{"first_name"=>"\"JJ\""}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mMember Update (1.8ms)[0m  [1m[33mUPDATE "members" SET "first_name" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["first_name", "\"JJ\""], ["updated_at", "2022-03-10 19:19:17.865631"], ["id", 1]]
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+Completed 200 OK in 34ms (Views: 0.4ms | ActiveRecord: 12.1ms | Allocations: 13875)
+
+
+Started PATCH "/members/1?members[first_name]=JJ" for ::1 at 2022-03-10 11:19:33 -0800
+Processing by MembersController#update as */*
+  Parameters: {"members"=>{"first_name"=>"JJ"}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "first_name" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["first_name", "JJ"], ["updated_at", "2022-03-10 19:19:33.634567"], ["id", 1]]
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 2.3ms | Allocations: 3338)
+
+
+Started PATCH "/members/2?members[first_name]=JJ" for ::1 at 2022-03-10 11:19:57 -0800
+Processing by MembersController#update as */*
+  Parameters: {"members"=>{"first_name"=>"JJ"}, "id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1357)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Member with 'id'=2:
+  app/controllers/members_controller.rb:29:in `update'
+
+Started PATCH "/members/2?members[first_name]=JJ" for ::1 at 2022-03-10 11:20:39 -0800
+Processing by MembersController#update as */*
+  Parameters: {"members"=>{"first_name"=>"JJ"}, "id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+Completed 404 Not Found in 14ms (ActiveRecord: 6.5ms | Allocations: 5273)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Member with 'id'=2:
+  app/controllers/members_controller.rb:29:in `update'
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.0ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (1.0ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 19:21:48.476130"], ["updated_at", "2022-03-10 19:21:48.476130"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.3ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 19:21:48.481207"], ["updated_at", "2022-03-10 19:21:48.481207"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.8ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("id", "first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["first_name", "John"], ["last_name", "Doe"], ["city", "Gater"], ["state", "Oh!"], ["country", "Cfusion"], ["created_at", "2022-03-10 19:21:48.517533"], ["updated_at", "2022-03-10 19:21:48.517533"], ["team_id", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started PATCH "/members/1" for ::1 at 2022-03-10 11:21:57 -0800
+Processing by MembersController#update as */*
+  Parameters: {"id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.4ms | Allocations: 2783)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: members:
+  app/controllers/members_controller.rb:46:in `member_params'
+  app/controllers/members_controller.rb:31:in `update'
+
+Started GET "/members/1" for ::1 at 2022-03-10 11:22:02 -0800
+Processing by MembersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:24:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 713)
+
+
+Started PATCH "/members/1?members[team_id]=2" for ::1 at 2022-03-10 11:22:21 -0800
+Processing by MembersController#update as */*
+  Parameters: {"members"=>{"team_id"=>"2"}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+[31mUnpermitted parameter: :team_id. Context: { controller: MembersController, action: update, request: #<ActionDispatch::Request:0x00007f9689bb75c0>, params: {"members"=>{"team_id"=>"2"}, "controller"=>"members", "action"=>"update", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+Completed 200 OK in 36ms (Views: 4.6ms | ActiveRecord: 5.4ms | Allocations: 11939)
+
+
+Started PATCH "/members/1?members[team_id]=2" for ::1 at 2022-03-10 11:22:30 -0800
+Processing by MembersController#update as */*
+  Parameters: {"members"=>{"team_id"=>"2"}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+[31mUnpermitted parameter: :team_id. Context: { controller: MembersController, action: update, request: #<ActionDispatch::Request:0x00007f968a38e7d0>, params: {"members"=>{"team_id"=>"2"}, "controller"=>"members", "action"=>"update", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 2797)
+
+
+Started GET "/members/1" for ::1 at 2022-03-10 11:22:41 -0800
+Processing by MembersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:24:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 704)
+
+
+Started PATCH "/members/1?members[first_name]=Jhon" for ::1 at 2022-03-10 11:23:19 -0800
+Processing by MembersController#update as */*
+  Parameters: {"members"=>{"first_name"=>"Jhon"}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "first_name" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["first_name", "Jhon"], ["updated_at", "2022-03-10 19:23:19.329413"], ["id", 1]]
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.7ms | Allocations: 3342)
+
+
+Started PATCH "/members/1?members[first_name]=Jhon&members[team_id]=2" for ::1 at 2022-03-10 11:23:38 -0800
+Processing by MembersController#update as */*
+  Parameters: {"members"=>{"first_name"=>"Jhon", "team_id"=>"2"}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+[31mUnpermitted parameter: :team_id. Context: { controller: MembersController, action: update, request: #<ActionDispatch::Request:0x00007f9691196958>, params: {"members"=>{"first_name"=>"Jhon", "team_id"=>"2"}, "controller"=>"members", "action"=>"update", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 2820)
+
+
+Started GET "/teams" for ::1 at 2022-03-10 11:24:51 -0800
+Processing by TeamsController#index as */*
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3538)
+
+
+
+NameError - undefined local variable or method `teams' for #<TeamsController:0x0000000006bc60>
+Did you mean?  @teams:
+  app/controllers/teams_controller.rb:20:in `index'
+
+Started GET "/teams" for ::1 at 2022-03-10 11:25:24 -0800
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:20:in `index'
+Completed 200 OK in 13ms (Views: 3.6ms | ActiveRecord: 5.7ms | Allocations: 3137)
+
+
+Started GET "/teams/1" for ::1 at 2022-03-10 11:25:34 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1851)
+
+
+Started DELETE "/members/1" for ::1 at 2022-03-10 12:15:45 -0800
+Processing by MembersController#destroy as */*
+  Parameters: {"id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+  [1m[36mMember Destroy (0.7ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 19.3ms | Allocations: 11597)
+
+
+
+ActionView::MissingTemplate - Missing template members/destroy, application/destroy with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip, :turbo_stream], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/Sai/Desktop/sprint-fwd-assignment/app/views"
+  * "/Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/actiontext-7.0.2.3/app/views"
+  * "/Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/actionmailbox-7.0.2.3/app/views"
+Did you mean?  rails/conductor/action_mailbox/inbound_emails/index
+               layouts/rails/conductor
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               rails/conductor/action_mailbox/inbound_emails/show
+               layouts/application:
+  app/controllers/members_controller.rb:41:in `destroy'
+
+Started DELETE "/members/1" for ::1 at 2022-03-10 12:32:52 -0800
+Processing by MembersController#destroy as */*
+  Parameters: {"id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:39:in `destroy'
+Completed 404 Not Found in 76ms (ActiveRecord: 10.1ms | Allocations: 7186)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Member with 'id'=1:
+  app/controllers/members_controller.rb:39:in `destroy'
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.1ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.6ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 20:33:05.096786"], ["updated_at", "2022-03-10 20:33:05.096786"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.3ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 20:33:05.102177"], ["updated_at", "2022-03-10 20:33:05.102177"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.6ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("id", "first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["first_name", "John"], ["last_name", "Doe"], ["city", "Gater"], ["state", "Oh!"], ["country", "Cfusion"], ["created_at", "2022-03-10 20:33:05.140256"], ["updated_at", "2022-03-10 20:33:05.140256"], ["team_id", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started DELETE "/members/1" for ::1 at 2022-03-10 12:33:10 -0800
+Processing by MembersController#destroy as */*
+  Parameters: {"id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (1.0ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+  [1m[36mMember Destroy (0.6ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.7ms | Allocations: 5352)
+
+
+
+ActionView::MissingTemplate - Missing template members/destroy, application/destroy with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip, :turbo_stream], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/Sai/Desktop/sprint-fwd-assignment/app/views"
+  * "/Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/actiontext-7.0.2.3/app/views"
+  * "/Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/actionmailbox-7.0.2.3/app/views"
+Did you mean?  rails/conductor/action_mailbox/inbound_emails/index
+               layouts/rails/conductor
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               rails/conductor/action_mailbox/inbound_emails/show
+               layouts/application:
+  app/controllers/members_controller.rb:41:in `destroy'
+
+Started POST "/members?members[first_name]=Sai&members[last_name]=Pat&members[city]=city&members[state]=state&members[country]=county" for ::1 at 2022-03-10 12:35:47 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "city"=>"city", "state"=>"state", "country"=>"county"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 10ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 5247)
+
+
+Started POST "/members?members[first_name]=Sai&members[last_name]=Pat&members[city]=city&members[state]=state&members[country]=county&members[team_id]=1" for ::1 at 2022-03-10 12:35:57 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "city"=>"city", "state"=>"state", "country"=>"county", "team_id"=>"1"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :team_id. Context: { controller: MembersController, action: create, request: #<ActionDispatch::Request:0x00007f968ecd3cb0>, params: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "city"=>"city", "state"=>"state", "country"=>"county", "team_id"=>"1"}, "controller"=>"members", "action"=>"create"} }[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1728)
+
+
+Started POST "/members?members[first_name]=Sai&members[last_name]=Pat&members[city]=city&members[state]=state&members[country]=county&members[team_id]=1" for ::1 at 2022-03-10 12:36:05 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "city"=>"city", "state"=>"state", "country"=>"county", "team_id"=>"1"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :team_id. Context: { controller: MembersController, action: create, request: #<ActionDispatch::Request:0x00007f968ec74c10>, params: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "city"=>"city", "state"=>"state", "country"=>"county", "team_id"=>"1"}, "controller"=>"members", "action"=>"create"} }[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1729)
+
+
+Started POST "/members?members[first_name]=Sai&members[team_id]=2&members[last_name]=Pat&members[city]=city&members[state]=state&members[country]=county" for ::1 at 2022-03-10 12:36:11 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "team_id"=>"2", "last_name"=>"Pat", "city"=>"city", "state"=>"state", "country"=>"county"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :team_id. Context: { controller: MembersController, action: create, request: #<ActionDispatch::Request:0x00007f968ec1e860>, params: {"members"=>{"first_name"=>"Sai", "team_id"=>"2", "last_name"=>"Pat", "city"=>"city", "state"=>"state", "country"=>"county"}, "controller"=>"members", "action"=>"create"} }[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1730)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.0ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.6ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 20:36:28.352386"], ["updated_at", "2022-03-10 20:36:28.352386"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 20:36:28.356850"], ["updated_at", "2022-03-10 20:36:28.356850"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.6ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("id", "first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["first_name", "John"], ["last_name", "Doe"], ["city", "Gater"], ["state", "Oh!"], ["country", "Cfusion"], ["created_at", "2022-03-10 20:36:28.384299"], ["updated_at", "2022-03-10 20:36:28.384299"], ["team_id", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/members?members[first_name]=Sai&members[team_id]=2&members[last_name]=Pat&members[city]=city&members[state]=state&members[country]=county" for ::1 at 2022-03-10 12:36:34 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "team_id"=>"2", "last_name"=>"Pat", "city"=>"city", "state"=>"state", "country"=>"county"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :team_id. Context: { controller: MembersController, action: create, request: #<ActionDispatch::Request:0x00007f9689cc7280>, params: {"members"=>{"first_name"=>"Sai", "team_id"=>"2", "last_name"=>"Pat", "city"=>"city", "state"=>"state", "country"=>"county"}, "controller"=>"members", "action"=>"create"} }[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1728)
+
+
+Started POST "/members?members[first_name]=Sai&members[teams.team_id]=2&members[last_name]=Pat&members[city]=city&members[state]=state&members[country]=county" for ::1 at 2022-03-10 12:39:01 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "teams.team_id"=>"2", "last_name"=>"Pat", "city"=>"city", "state"=>"state", "country"=>"county"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :teams.team_id. Context: { controller: MembersController, action: create, request: #<ActionDispatch::Request:0x00007f968ebefa88>, params: {"members"=>{"first_name"=>"Sai", "teams.team_id"=>"2", "last_name"=>"Pat", "city"=>"city", "state"=>"state", "country"=>"county"}, "controller"=>"members", "action"=>"create"} }[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1730)
+
+
+Started POST "/members" for ::1 at 2022-03-10 12:42:10 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2121)
+
+
+Started POST "/members" for ::1 at 2022-03-10 12:42:50 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"2"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :team_id. Context: { controller: MembersController, action: create, request: #<ActionDispatch::Request:0x00007f968ea9d608>, params: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"2"}, "controller"=>"members", "action"=>"create"} }[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1728)
+
+
+Started POST "/teams?teams[name]=Pacman" for ::1 at 2022-03-10 12:44:33 -0800
+Processing by TeamsController#create as */*
+  Parameters: {"teams"=>{"name"=>"Pacman"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+  [1m[36mTeam Create (6.5ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pacman"], ["created_at", "2022-03-10 20:44:33.412698"], ["updated_at", "2022-03-10 20:44:33.412698"]]
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 6.8ms | Allocations: 4951)
+
+
+
+ActiveRecord::RecordNotUnique - PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "teams_pkey"
+DETAIL:  Key (id)=(1) already exists.:
+  app/controllers/teams_controller.rb:10:in `create'
+
+Started POST "/teams?teams[name]=Pacman&teams[id]=3" for ::1 at 2022-03-10 12:45:03 -0800
+Processing by TeamsController#create as */*
+  Parameters: {"teams"=>{"name"=>"Pacman", "id"=>"3"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :id. Context: { controller: TeamsController, action: create, request: #<ActionDispatch::Request:0x00007f9689bd0e30>, params: {"teams"=>{"name"=>"Pacman", "id"=>"3"}, "controller"=>"teams", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+  [1m[36mTeam Create (2.4ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pacman"], ["created_at", "2022-03-10 20:45:03.509944"], ["updated_at", "2022-03-10 20:45:03.509944"]]
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 2.9ms | Allocations: 4195)
+
+
+
+ActiveRecord::RecordNotUnique - PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "teams_pkey"
+DETAIL:  Key (id)=(2) already exists.:
+  app/controllers/teams_controller.rb:10:in `create'
+
+Started POST "/members" for ::1 at 2022-03-10 12:45:56 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"2"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mMember Create (1.5ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Sai"], ["last_name", "Pat"], ["city", "city"], ["state", "state"], ["country", "country"], ["created_at", "2022-03-10 20:45:56.264183"], ["updated_at", "2022-03-10 20:45:56.264183"], ["team_id", 2]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 14.8ms | Allocations: 14281)
+
+
+
+ActiveRecord::RecordNotUnique - PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "members_pkey"
+DETAIL:  Key (id)=(1) already exists.:
+  app/controllers/members_controller.rb:10:in `create'
+
+Started POST "/members" for ::1 at 2022-03-10 12:46:10 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"3"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 422 Unprocessable Entity in 9ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 3437)
+
+
+Started POST "/members" for ::1 at 2022-03-10 12:47:09 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"3"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 3436)
+
+
+Started POST "/members" for ::1 at 2022-03-10 12:47:13 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"2"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Sai"], ["last_name", "Pat"], ["city", "city"], ["state", "state"], ["country", "country"], ["created_at", "2022-03-10 20:47:13.746285"], ["updated_at", "2022-03-10 20:47:13.746285"], ["team_id", 2]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.1ms | Allocations: 4950)
+
+
+
+ActionView::MissingTemplate - Missing template members/create, application/create with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip, :turbo_stream], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/Sai/Desktop/sprint-fwd-assignment/app/views"
+  * "/Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/actiontext-7.0.2.3/app/views"
+  * "/Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/actionmailbox-7.0.2.3/app/views"
+Did you mean?  rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               rails/conductor/action_mailbox/inbound_emails/index
+               layouts/rails/conductor
+               layouts/application
+               layouts/mailer:
+  app/controllers/members_controller.rb:11:in `create'
+
+Started POST "/members" for ::1 at 2022-03-10 12:47:48 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"2"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Sai"], ["last_name", "Pat"], ["city", "city"], ["state", "state"], ["country", "country"], ["created_at", "2022-03-10 20:47:48.334572"], ["updated_at", "2022-03-10 20:47:48.334572"], ["team_id", 2]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 200 OK in 31ms (Views: 0.4ms | ActiveRecord: 11.7ms | Allocations: 12147)
+
+
+Started POST "/teams?teams[name]=Pacman" for ::1 at 2022-03-10 12:48:06 -0800
+Processing by TeamsController#create as */*
+  Parameters: {"teams"=>{"name"=>"Pacman"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pacman"], ["created_at", "2022-03-10 20:48:06.860740"], ["updated_at", "2022-03-10 20:48:06.860740"]]
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 1965)
+
+
+Started GET "/teams" for ::1 at 2022-03-10 12:48:59 -0800
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 924)
+
+
+Started GET "/members" for ::1 at 2022-03-10 12:49:04 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1111)
+
+
+Started PATCH "/members/3?members[team_id]=3" for ::1 at 2022-03-10 12:50:01 -0800
+Processing by MembersController#update as */*
+  Parameters: {"members"=>{"team_id"=>"3"}, "id"=>"3"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "updated_at" = $1, "team_id" = $2 WHERE "members"."id" = $3[0m  [["updated_at", "2022-03-10 20:50:01.822874"], ["team_id", 3], ["id", 3]]
+  ↳ app/controllers/members_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:31:in `update'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 4561)
+
+
+Started GET "/members" for ::1 at 2022-03-10 12:50:05 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 1084)
+
+
+Started GET "/teams" for ::1 at 2022-03-10 12:54:27 -0800
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:20:in `index'
+Completed 200 OK in 18ms (Views: 6.1ms | ActiveRecord: 6.1ms | Allocations: 3169)
+
+
+Started GET "/teams/2" for ::1 at 2022-03-10 12:54:36 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms | Allocations: 4894)
+
+
+
+NoMethodError - undefined method `find_by_sql' for #<TeamsController:0x00000000086060>:
+  app/controllers/teams_controller.rb:26:in `show'
+
+Started GET "/teams/2" for ::1 at 2022-03-10 12:54:48 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 5.6ms | Allocations: 6544)
+
+
+
+NameError - uninitialized constant TeamsController::MEMBERS
+Did you mean?  Member:
+  app/controllers/teams_controller.rb:26:in `show'
+
+Started GET "/teams/2" for ::1 at 2022-03-10 12:54:55 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 5.9ms | Allocations: 6496)
+
+
+
+NameError - uninitialized constant TeamsController::MEMBER
+Did you mean?  Member:
+  app/controllers/teams_controller.rb:26:in `show'
+
+Started GET "/teams/2" for ::1 at 2022-03-10 12:55:58 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 5.7ms | Allocations: 6521)
+
+
+
+NameError - uninitialized constant TeamsController::MEMBER
+Did you mean?  Member:
+  app/controllers/teams_controller.rb:26:in `show'
+
+Started GET "/teams/2" for ::1 at 2022-03-10 12:56:20 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (2.1ms)[0m  [1m[34m      SELECT
+        members.*
+      FROM
+        members
+      WHERE
+        team_id = ?,
+      team_id
+[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 7.7ms | Allocations: 8073)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at or near ","
+LINE 6:         team_id = ?,
+                           ^:
+  app/controllers/teams_controller.rb:26:in `show'
+
+Started GET "/teams/2" for ::1 at 2022-03-10 12:58:19 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 5.9ms | Allocations: 6732)
+
+
+
+ActiveRecord::PreparedStatementInvalid - wrong number of bind variables (0 for 1) in: SELECT
+        *
+      FROM
+        members
+      WHERE
+        team_id = ?,
+      @team.team_id:
+  app/controllers/teams_controller.rb:26:in `show'
+
+Started GET "/teams/2" for ::1 at 2022-03-10 12:58:45 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 5.8ms | Allocations: 6702)
+
+
+
+ActiveRecord::PreparedStatementInvalid - wrong number of bind variables (0 for 1) in: SELECT
+        first_name
+      FROM
+        members
+      WHERE
+        team_id = ?,
+      @team.team_id:
+  app/controllers/teams_controller.rb:26:in `show'
+
+Started GET "/teams/2" for ::1 at 2022-03-10 13:01:04 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (1.1ms)[0m  [1m[34mSELECT
+        first_name
+      FROM
+        members
+      WHERE
+        team_id = @team.team_id[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 6.6ms | Allocations: 8060)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "team"
+LINE 6:         team_id = @team.team_id
+                           ^:
+  app/controllers/teams_controller.rb:26:in `show'
+
+Started GET "/teams/2" for ::1 at 2022-03-10 13:03:51 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (1.3ms)[0m  [1m[34mSELECT
+        first_name
+      FROM
+        members
+      WHERE
+        team_id = [0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 6.5ms | Allocations: 8119)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at end of input
+LINE 6:         team_id = 
+                          ^:
+  app/controllers/teams_controller.rb:26:in `show'
+
+Started GET "/teams/2" for ::1 at 2022-03-10 13:03:58 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT
+        first_name
+      FROM
+        members
+      WHERE
+        team_id = 2[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 200 OK in 24ms (Views: 0.3ms | ActiveRecord: 10.7ms | Allocations: 8400)
+
+
+Started GET "/teams/2" for ::1 at 2022-03-10 13:04:12 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        team_id = 2[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 200 OK in 24ms (Views: 0.4ms | ActiveRecord: 10.2ms | Allocations: 8447)
+
+
+Started GET "/teams/1" for ::1 at 2022-03-10 13:04:21 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        team_id = 1[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1125)
+
+
+Started GET "/teams/3" for ::1 at 2022-03-10 13:04:30 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        team_id = 3[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 1125)
+
+
+Started GET "/teams/2" for ::1 at 2022-03-10 13:04:35 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        team_id = 2[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1125)
+
+
+Started GET "/meambers" for ::1 at 2022-03-10 13:04:40 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/meambers"):
+  
+Started GET "/members" for ::1 at 2022-03-10 13:04:44 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 1108)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (0.9ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.6ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 21:05:19.465450"], ["updated_at", "2022-03-10 21:05:19.465450"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 21:05:19.470808"], ["updated_at", "2022-03-10 21:05:19.470808"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.7ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("id", "first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["first_name", "John"], ["last_name", "Doe"], ["city", "Gater"], ["state", "Oh!"], ["country", "Cfusion"], ["created_at", "2022-03-10 21:05:19.500948"], ["updated_at", "2022-03-10 21:05:19.500948"], ["team_id", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("id", "first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 2], ["first_name", "Pie"], ["last_name", "Maker"], ["city", "Gater"], ["state", "Oh!"], ["country", "Cfusion"], ["created_at", "2022-03-10 21:05:19.507903"], ["updated_at", "2022-03-10 21:05:19.507903"], ["team_id", 2]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/members" for ::1 at 2022-03-10 13:05:22 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 957)
+
+
+Started POST "/teams?teams[name]=Pacman" for ::1 at 2022-03-10 13:05:35 -0800
+Processing by TeamsController#create as */*
+  Parameters: {"teams"=>{"name"=>"Pacman"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+  [1m[36mTeam Create (0.5ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pacman"], ["created_at", "2022-03-10 21:05:35.084296"], ["updated_at", "2022-03-10 21:05:35.084296"]]
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/teams_controller.rb:10:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 1962)
+
+
+Started POST "/members" for ::1 at 2022-03-10 13:05:54 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"4"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Sai"], ["last_name", "Pat"], ["city", "city"], ["state", "state"], ["country", "country"], ["created_at", "2022-03-10 21:05:54.428352"], ["updated_at", "2022-03-10 21:05:54.428352"], ["team_id", 4]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 5874)
+
+
+Started GET "/members" for ::1 at 2022-03-10 13:05:57 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms | Allocations: 1084)
+
+
+Started GET "/teams/4" for ::1 at 2022-03-10 13:06:16 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        team_id = 4[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 1125)
+
+
+Started GET "/teams/2" for ::1 at 2022-03-10 13:06:20 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        team_id = 2[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1125)
+
+
+Started GET "/teams" for ::1 at 2022-03-10 13:07:33 -0800
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 924)
+
+
+Started GET "/members" for ::1 at 2022-03-10 13:07:40 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 1084)
+
+
+Started DELETE "/members/3" for ::1 at 2022-03-10 13:07:59 -0800
+Processing by MembersController#destroy as */*
+  Parameters: {"id"=>"3"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:39:in `destroy'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 2486)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Member with 'id'=3:
+  app/controllers/members_controller.rb:39:in `destroy'
+
+Started DELETE "/members/4" for ::1 at 2022-03-10 13:08:03 -0800
+Processing by MembersController#destroy as */*
+  Parameters: {"id"=>"4"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+  [1m[36mMember Destroy (0.4ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.7ms | Allocations: 3979)
+
+
+
+ActionView::MissingTemplate - Missing template members/destroy, application/destroy with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip, :turbo_stream], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/Sai/Desktop/sprint-fwd-assignment/app/views"
+  * "/Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/actiontext-7.0.2.3/app/views"
+  * "/Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/actionmailbox-7.0.2.3/app/views"
+Did you mean?  rails/conductor/action_mailbox/inbound_emails/index
+               layouts/rails/conductor
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               rails/conductor/action_mailbox/inbound_emails/show
+               layouts/application:
+  app/controllers/members_controller.rb:41:in `destroy'
+
+Started POST "/members" for ::1 at 2022-03-10 13:08:43 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"Sai", "last_name"=>"Pat", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"4"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Sai"], ["last_name", "Pat"], ["city", "city"], ["state", "state"], ["country", "country"], ["created_at", "2022-03-10 21:08:43.699254"], ["updated_at", "2022-03-10 21:08:43.699254"], ["team_id", 4]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 200 OK in 35ms (Views: 0.4ms | ActiveRecord: 11.4ms | Allocations: 12162)
+
+
+Started DELETE "/members/5" for ::1 at 2022-03-10 13:08:52 -0800
+Processing by MembersController#destroy as */*
+  Parameters: {"id"=>"5"}
+Can't verify CSRF token authenticity.
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+  [1m[36mMember Destroy (0.5ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:40:in `destroy'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 3195)
+
+
+Started DELETE "/teams/4" for ::1 at 2022-03-10 13:09:25 -0800
+Processing by TeamsController#destroy as */*
+  Parameters: {"id"=>"4"}
+Can't verify CSRF token authenticity.
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:49:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/teams_controller.rb:50:in `destroy'
+  [1m[36mTeam Destroy (0.4ms)[0m  [1m[31mDELETE FROM "teams" WHERE "teams"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/teams_controller.rb:50:in `destroy'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/teams_controller.rb:50:in `destroy'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 6.7ms | Allocations: 5340)
+
+
+Started DELETE "/teams/4" for ::1 at 2022-03-10 13:09:28 -0800
+Processing by TeamsController#destroy as */*
+  Parameters: {"id"=>"4"}
+Can't verify CSRF token authenticity.
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:49:in `destroy'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1347)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Team with 'id'=4:
+  app/controllers/teams_controller.rb:49:in `destroy'
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4014365143816943475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForeignKeyProjectToMember (20220310211203)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "projects" ADD "team_id" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220310211203"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4014365143816943475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.0ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.5ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 21:14:16.684118"], ["updated_at", "2022-03-10 21:14:16.684118"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 21:14:16.689018"], ["updated_at", "2022-03-10 21:14:16.689018"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Delete All (1.1ms)[0m  [1m[31mDELETE FROM "projects"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["name", "Apple"], ["created_at", "2022-03-10 21:14:16.706447"], ["updated_at", "2022-03-10 21:14:16.706447"], ["team_id", nil]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 2], ["name", "Helix"], ["created_at", "2022-03-10 21:14:16.710941"], ["updated_at", "2022-03-10 21:14:16.710941"], ["team_id", nil]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/projects" for ::1 at 2022-03-10 13:14:28 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProjectsController#index as */*
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/controllers/projects_controller.rb:20:in `index'
+Completed 200 OK in 11ms (Views: 3.2ms | ActiveRecord: 5.5ms | Allocations: 3322)
+
+
+Started POST "/teams?projects[name]=WatchPro" for ::1 at 2022-03-10 13:15:11 -0800
+Processing by TeamsController#create as */*
+  Parameters: {"projects"=>{"name"=>"WatchPro"}}
+Can't verify CSRF token authenticity.
+Completed 400 Bad Request in 8ms (ActiveRecord: 0.0ms | Allocations: 1933)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: teams:
+  app/controllers/teams_controller.rb:56:in `team_params'
+  app/controllers/teams_controller.rb:8:in `create'
+
+Started POST "/projects?projects[name]=WatchPro" for ::1 at 2022-03-10 13:15:44 -0800
+Processing by ProjectsController#create as */*
+  Parameters: {"projects"=>{"name"=>"WatchPro"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2743)
+
+
+
+NameError - uninitialized constant ProjectsController::Project_params:
+  app/controllers/projects_controller.rb:8:in `create'
+
+Started POST "/projects?projects[name]=WatchPro" for ::1 at 2022-03-10 13:16:19 -0800
+Processing by ProjectsController#create as */*
+  Parameters: {"projects"=>{"name"=>"WatchPro"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3907)
+
+
+
+NameError - uninitialized constant ProjectsController::Project_params:
+  app/controllers/projects_controller.rb:8:in `create'
+
+Started POST "/projects?projects[name]=WatchPro" for ::1 at 2022-03-10 13:16:39 -0800
+Processing by ProjectsController#create as */*
+  Parameters: {"projects"=>{"name"=>"WatchPro"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mProject Create (1.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "WatchPro"], ["created_at", "2022-03-10 21:16:39.488131"], ["updated_at", "2022-03-10 21:16:39.488131"], ["team_id", nil]]
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 7.6ms | Allocations: 7807)
+
+
+
+ActiveRecord::RecordNotUnique - PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "projects_pkey"
+DETAIL:  Key (id)=(1) already exists.:
+  app/controllers/projects_controller.rb:10:in `create'
+
+Started GET "/projects" for ::1 at 2022-03-10 13:16:49 -0800
+Processing by ProjectsController#index as */*
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/controllers/projects_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 890)
+
+
+Started POST "/projects?projects[name]=WatchPro&projects[id]=1" for ::1 at 2022-03-10 13:17:16 -0800
+Processing by ProjectsController#create as */*
+  Parameters: {"projects"=>{"name"=>"WatchPro", "id"=>"1"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :id. Context: { controller: ProjectsController, action: create, request: #<ActionDispatch::Request:0x00007f96921567a8>, params: {"projects"=>{"name"=>"WatchPro", "id"=>"1"}, "controller"=>"projects", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mProject Create (1.6ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "WatchPro"], ["created_at", "2022-03-10 21:17:16.489019"], ["updated_at", "2022-03-10 21:17:16.489019"], ["team_id", nil]]
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 2.0ms | Allocations: 4206)
+
+
+
+ActiveRecord::RecordNotUnique - PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "projects_pkey"
+DETAIL:  Key (id)=(2) already exists.:
+  app/controllers/projects_controller.rb:10:in `create'
+
+Started POST "/projects?projects[name]=WatchPro&projects[id]=3" for ::1 at 2022-03-10 13:17:39 -0800
+Processing by ProjectsController#create as */*
+  Parameters: {"projects"=>{"name"=>"WatchPro", "id"=>"3"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :id. Context: { controller: ProjectsController, action: create, request: #<ActionDispatch::Request:0x00007f96900c09f8>, params: {"projects"=>{"name"=>"WatchPro", "id"=>"3"}, "controller"=>"projects", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mProject Create (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at", "team_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "WatchPro"], ["created_at", "2022-03-10 21:17:39.789777"], ["updated_at", "2022-03-10 21:17:39.789777"], ["team_id", nil]]
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.8ms | Allocations: 1971)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4014365143816943475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AdForeignKeyProjectToMember (20220310211900)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "member" ADD "project_id" integer[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4014365143816943475)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4014365143816943475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AdForeignKeyProjectToMember (20220310211900)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "members" ADD "project_id" integer[0m
+  [1m[35m (7.5ms)[0m  [1m[35mALTER TABLE "projects" DROP COLUMN "team_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220310211900"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4014365143816943475)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started DELETE "/projects/3" for ::1 at 2022-03-10 13:21:21 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProjectsController#destroy as */*
+  Parameters: {"id"=>"3"}
+Can't verify CSRF token authenticity.
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:40:in `destroy'
+  [1m[36mProject Destroy (0.4ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/projects_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:40:in `destroy'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 7.1ms | Allocations: 5401)
+
+
+Started POST "/projects?projects[name]=WatchPro&projects[id]=3" for ::1 at 2022-03-10 13:21:26 -0800
+Processing by ProjectsController#create as */*
+  Parameters: {"projects"=>{"name"=>"WatchPro", "id"=>"3"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :id. Context: { controller: ProjectsController, action: create, request: #<ActionDispatch::Request:0x00007f968ec06ff8>, params: {"projects"=>{"name"=>"WatchPro", "id"=>"3"}, "controller"=>"projects", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "WatchPro"], ["created_at", "2022-03-10 21:21:26.268081"], ["updated_at", "2022-03-10 21:21:26.268081"]]
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 2046)
+
+
+Started GET "/projects" for ::1 at 2022-03-10 13:21:31 -0800
+Processing by ProjectsController#index as */*
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/controllers/projects_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 924)
+
+
+Started GET "/projects/2" for ::1 at 2022-03-10 13:23:21 -0800
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:24:in `show'
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 8.0ms | Allocations: 11580)
+
+
+
+NameError - undefined local variable or method `optional' for #<Class:0x00007f9692081be8>:
+  app/models/member.rb:19:in `<class:Member>'
+  app/models/member.rb:1:in `<main>'
+  app/controllers/projects_controller.rb:26:in `show'
+
+Started GET "/projects/2" for ::1 at 2022-03-10 13:23:42 -0800
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:24:in `show'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 5.7ms | Allocations: 6831)
+
+
+
+ArgumentError - Unknown key: :optional. Valid keys are: :class_name, :anonymous_class, :primary_key, :foreign_key, :dependent, :validate, :inverse_of, :strict_loading, :autosave, :before_add, :after_add, :before_remove, :after_remove, :extend, :counter_cache, :join_table, :index_errors:
+  app/models/member.rb:15:in `<class:Member>'
+  app/models/member.rb:1:in `<main>'
+  app/controllers/projects_controller.rb:26:in `show'
+
+Started GET "/projects/2" for ::1 at 2022-03-10 13:24:01 -0800
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:24:in `show'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 5.4ms | Allocations: 6887)
+
+
+
+ArgumentError - Unknown key: :optional. Valid keys are: :class_name, :anonymous_class, :primary_key, :foreign_key, :dependent, :validate, :inverse_of, :strict_loading, :autosave, :before_add, :after_add, :before_remove, :after_remove, :extend, :counter_cache, :join_table, :index_errors:
+  app/models/member.rb:15:in `<class:Member>'
+  app/models/member.rb:1:in `<main>'
+  app/controllers/projects_controller.rb:26:in `show'
+
+Started GET "/projects/2" for ::1 at 2022-03-10 13:24:17 -0800
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:24:in `show'
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        project_id = 2[0m
+  ↳ app/controllers/projects_controller.rb:26:in `show'
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 5.8ms | Allocations: 7278)
+
+
+Started GET "/teams/2" for ::1 at 2022-03-10 13:24:30 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        team_id = 2[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 200 OK in 25ms (Views: 0.4ms | ActiveRecord: 10.7ms | Allocations: 7920)
+
+
+Started GET "/projects" for ::1 at 2022-03-10 13:24:45 -0800
+Processing by ProjectsController#index as */*
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/controllers/projects_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 927)
+
+
+Started GET "/members" for ::1 at 2022-03-10 13:24:51 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.5ms | Allocations: 994)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.6ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.5ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 21:25:14.600852"], ["updated_at", "2022-03-10 21:25:14.600852"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 21:25:14.605748"], ["updated_at", "2022-03-10 21:25:14.605748"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Delete All (0.8ms)[0m  [1m[31mDELETE FROM "projects"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Apple"], ["created_at", "2022-03-10 21:25:14.619468"], ["updated_at", "2022-03-10 21:25:14.619468"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Helix"], ["created_at", "2022-03-10 21:25:14.623300"], ["updated_at", "2022-03-10 21:25:14.623300"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.8ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.6ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.6ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 21:26:35.295656"], ["updated_at", "2022-03-10 21:26:35.295656"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 21:26:35.300946"], ["updated_at", "2022-03-10 21:26:35.300946"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Delete All (0.8ms)[0m  [1m[31mDELETE FROM "projects"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Apple"], ["created_at", "2022-03-10 21:26:35.314909"], ["updated_at", "2022-03-10 21:26:35.314909"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Helix"], ["created_at", "2022-03-10 21:26:35.318940"], ["updated_at", "2022-03-10 21:26:35.318940"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.5ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.6ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.6ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 21:26:55.597336"], ["updated_at", "2022-03-10 21:26:55.597336"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.5ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 21:26:55.602003"], ["updated_at", "2022-03-10 21:26:55.602003"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Delete All (0.8ms)[0m  [1m[31mDELETE FROM "projects"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Apple"], ["created_at", "2022-03-10 21:26:55.616230"], ["updated_at", "2022-03-10 21:26:55.616230"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Helix"], ["created_at", "2022-03-10 21:26:55.620084"], ["updated_at", "2022-03-10 21:26:55.620084"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.4ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.6ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.6ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 21:27:46.356444"], ["updated_at", "2022-03-10 21:27:46.356444"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 21:27:46.361246"], ["updated_at", "2022-03-10 21:27:46.361246"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Delete All (0.8ms)[0m  [1m[31mDELETE FROM "projects"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Apple"], ["created_at", "2022-03-10 21:27:46.375039"], ["updated_at", "2022-03-10 21:27:46.375039"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Helix"], ["created_at", "2022-03-10 21:27:46.378755"], ["updated_at", "2022-03-10 21:27:46.378755"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.5ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.1ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.6ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 21:28:28.802951"], ["updated_at", "2022-03-10 21:28:28.802951"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.3ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 21:28:28.808101"], ["updated_at", "2022-03-10 21:28:28.808101"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Delete All (0.8ms)[0m  [1m[31mDELETE FROM "projects"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Apple"], ["created_at", "2022-03-10 21:28:28.823220"], ["updated_at", "2022-03-10 21:28:28.823220"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Helix"], ["created_at", "2022-03-10 21:28:28.827504"], ["updated_at", "2022-03-10 21:28:28.827504"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.6ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (1.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.8ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.6ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 21:29:18.650428"], ["updated_at", "2022-03-10 21:29:18.650428"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.3ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 21:29:18.655017"], ["updated_at", "2022-03-10 21:29:18.655017"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Delete All (1.0ms)[0m  [1m[31mDELETE FROM "projects"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Apple"], ["created_at", "2022-03-10 21:29:18.669776"], ["updated_at", "2022-03-10 21:29:18.669776"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Helix"], ["created_at", "2022-03-10 21:29:18.673777"], ["updated_at", "2022-03-10 21:29:18.673777"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.5ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("id", "first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id", "project_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id", 1], ["first_name", "John"], ["last_name", "Doe"], ["city", "Gater"], ["state", "Oh!"], ["country", "Cfusion"], ["created_at", "2022-03-10 21:29:18.716907"], ["updated_at", "2022-03-10 21:29:18.716907"], ["team_id", 1], ["project_id", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("id", "first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id", "project_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id", 2], ["first_name", "Pie"], ["last_name", "Maker"], ["city", "Gater"], ["state", "Oh!"], ["country", "Cfusion"], ["created_at", "2022-03-10 21:29:18.723919"], ["updated_at", "2022-03-10 21:29:18.723919"], ["team_id", 2], ["project_id", 2]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.7ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.6ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 21:29:26.772888"], ["updated_at", "2022-03-10 21:29:26.772888"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 21:29:26.778191"], ["updated_at", "2022-03-10 21:29:26.778191"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Delete All (0.8ms)[0m  [1m[31mDELETE FROM "projects"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Apple"], ["created_at", "2022-03-10 21:29:26.792276"], ["updated_at", "2022-03-10 21:29:26.792276"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Helix"], ["created_at", "2022-03-10 21:29:26.795980"], ["updated_at", "2022-03-10 21:29:26.795980"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.8ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTeam Delete All (1.7ms)[0m  [1m[31mDELETE FROM "teams"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.7ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Flamingo"], ["created_at", "2022-03-10 21:29:36.711529"], ["updated_at", "2022-03-10 21:29:36.711529"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Fosters"], ["created_at", "2022-03-10 21:29:36.717010"], ["updated_at", "2022-03-10 21:29:36.717010"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Delete All (0.8ms)[0m  [1m[31mDELETE FROM "projects"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "Apple"], ["created_at", "2022-03-10 21:29:36.730580"], ["updated_at", "2022-03-10 21:29:36.730580"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 2], ["name", "Helix"], ["created_at", "2022-03-10 21:29:36.734702"], ["updated_at", "2022-03-10 21:29:36.734702"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMember Delete All (0.5ms)[0m  [1m[31mDELETE FROM "members"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("id", "first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id", "project_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id", 1], ["first_name", "John"], ["last_name", "Doe"], ["city", "Gater"], ["state", "Oh!"], ["country", "Cfusion"], ["created_at", "2022-03-10 21:29:36.783791"], ["updated_at", "2022-03-10 21:29:36.783791"], ["team_id", 1], ["project_id", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("id", "first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id", "project_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id", 2], ["first_name", "Pie"], ["last_name", "Maker"], ["city", "Gater"], ["state", "Oh!"], ["country", "Cfusion"], ["created_at", "2022-03-10 21:29:36.797467"], ["updated_at", "2022-03-10 21:29:36.797467"], ["team_id", 2], ["project_id", 2]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/members" for ::1 at 2022-03-10 13:29:49 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 17ms (Views: 5.8ms | ActiveRecord: 5.6ms | Allocations: 6248)
+
+
+Started GET "/projects/1" for ::1 at 2022-03-10 13:30:13 -0800
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:24:in `show'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        project_id = 1[0m
+  ↳ app/controllers/projects_controller.rb:26:in `show'
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 5.5ms | Allocations: 4314)
+
+
+Started POST "/members" for ::1 at 2022-03-10 13:30:42 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"bol", "last_name"=>"viu", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"4", "project_id"=>"1"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :project_id. Context: { controller: MembersController, action: create, request: #<ActionDispatch::Request:0x00007f96901a7470>, params: {"members"=>{"first_name"=>"bol", "last_name"=>"viu", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"4", "project_id"=>"1"}, "controller"=>"members", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (1.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 422 Unprocessable Entity in 36ms (Views: 0.2ms | ActiveRecord: 3.4ms | Allocations: 13412)
+
+
+Started POST "/members" for ::1 at 2022-03-10 13:30:52 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"bol", "last_name"=>"viu", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"4", "project_id"=>"1"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :project_id. Context: { controller: MembersController, action: create, request: #<ActionDispatch::Request:0x00007f9689dd5960>, params: {"members"=>{"first_name"=>"bol", "last_name"=>"viu", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"4", "project_id"=>"1"}, "controller"=>"members", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 422 Unprocessable Entity in 10ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 3977)
+
+
+Started POST "/members" for ::1 at 2022-03-10 13:31:12 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"bol", "last_name"=>"viu", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"4", "project_id"=>"1"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 422 Unprocessable Entity in 36ms (Views: 0.2ms | ActiveRecord: 11.6ms | Allocations: 18567)
+
+
+Started POST "/members" for ::1 at 2022-03-10 13:31:23 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"bol", "last_name"=>"viu", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"1", "project_id"=>"1"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mMember Create (0.6ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id", "project_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "bol"], ["last_name", "viu"], ["city", "city"], ["state", "state"], ["country", "country"], ["created_at", "2022-03-10 21:31:23.076948"], ["updated_at", "2022-03-10 21:31:23.076948"], ["team_id", 1], ["project_id", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 200 OK in 19ms (Views: 0.6ms | ActiveRecord: 6.2ms | Allocations: 4385)
+
+
+Started GET "/projects/1" for ::1 at 2022-03-10 13:31:29 -0800
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:24:in `show'
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        project_id = 1[0m
+  ↳ app/controllers/projects_controller.rb:26:in `show'
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 1.0ms | Allocations: 2429)
+
+
+Started GET "/members" for ::1 at 2022-03-10 13:31:38 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 1120)
+
+
+Started GET "/teams/1" for ::1 at 2022-03-10 13:31:51 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        team_id = 1[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 2421)
+
+
