@@ -16,8 +16,16 @@ class MembersController < ApplicationController
   end
 
   def index
-    @members = Member.all
-    render json: @members
+    if params.has_key?(:team_id)
+      @members = Member.where(team_id: params[:team_id])
+    elsif params.has_key?(:project_id)
+      @members = Member.where(project_id: params[:project_id])
+    else
+      @members = Member.all
+    end
+
+    render :index
+
   end
 
   def show

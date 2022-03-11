@@ -8,9 +8,15 @@ Rails.application.routes.draw do
   # resources :members, only: [:show, :update, :create, :destroy]
 
   resources :teams do
-    resources :members, only: [:index]
+    resources :members, only: :index
   end
 
-  resources :projects
+  resources :projects do
+    resources :members, only: :index
+
+    member do
+      get 'preview'
+    end
+  end
 
 end

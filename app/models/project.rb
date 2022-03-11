@@ -6,5 +6,5 @@ class Project < ApplicationRecord
       foreign_key: :member_id,
       class_name: :Member
 
-
+    
 end

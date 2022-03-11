@@ -1850,3 +1850,540 @@ Processing by TeamsController#show as */*
 Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 2421)
 
 
+Started GET "/teams/1" for ::1 at 2022-03-10 14:24:21 -0800
+Processing by TeamsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.8ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:24:in `show'
+  [1m[36mMember Load (0.8ms)[0m  [1m[34mSELECT
+        *
+      FROM
+        members
+      WHERE
+        team_id = 1[0m
+  ↳ app/controllers/teams_controller.rb:26:in `show'
+Completed 200 OK in 130ms (Views: 0.7ms | ActiveRecord: 13.8ms | Allocations: 11401)
+
+
+Started GET "/teams/1/members" for ::1 at 2022-03-10 14:24:28 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+  [1m[36mMember Load (0.9ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.9ms | Allocations: 1126)
+
+
+Started GET "/projects/1/members" for ::1 at 2022-03-10 14:24:36 -0800
+Processing by MembersController#index as */*
+  Parameters: {"project_id"=>"1"}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 1101)
+
+
+Started GET "/projects/1/members" for ::1 at 2022-03-10 14:30:07 -0800
+Processing by MembersController#index as */*
+  Parameters: {"project_id"=>"1"}
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms | Allocations: 7859)
+
+
+
+NoMethodError - undefined method `WHERE' for #<Class:0x00007f9690219778>
+Did you mean?  when:
+  app/controllers/members_controller.rb:22:in `index'
+
+Started GET "/teams/1/members" for ::1 at 2022-03-10 14:30:20 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 4160)
+
+
+
+NoMethodError - undefined method `WHERE' for #<Class:0x00007f9690219778>
+Did you mean?  when:
+  app/controllers/members_controller.rb:20:in `index'
+
+Started POST "/members" for ::1 at 2022-03-10 14:30:32 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"bol", "last_name"=>"viu", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"1", "project_id"=>"1"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mMember Create (1.0ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id", "project_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "bol"], ["last_name", "viu"], ["city", "city"], ["state", "state"], ["country", "country"], ["created_at", "2022-03-10 22:30:32.227976"], ["updated_at", "2022-03-10 22:30:32.227976"], ["team_id", 1], ["project_id", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 200 OK in 48ms (Views: 0.5ms | ActiveRecord: 18.7ms | Allocations: 15221)
+
+
+Started GET "/members" for ::1 at 2022-03-10 14:30:45 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 1273)
+
+
+Started GET "/members?members[team_id]=1" for ::1 at 2022-03-10 14:31:02 -0800
+Processing by MembersController#index as */*
+  Parameters: {"members"=>{"team_id"=>"1"}}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 1246)
+
+
+Started GET "/members?members[team_id]=1" for ::1 at 2022-03-10 14:31:15 -0800
+Processing by MembersController#index as */*
+  Parameters: {"members"=>{"team_id"=>"1"}}
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.5ms | Allocations: 1246)
+
+
+Started GET "/members?members[team_id]=1" for ::1 at 2022-03-10 14:33:17 -0800
+Processing by MembersController#index as */*
+  Parameters: {"members"=>{"team_id"=>"1"}}
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 20ms (Views: 6.6ms | ActiveRecord: 6.6ms | Allocations: 6565)
+
+
+Started GET "/members?members[team_id]=1" for ::1 at 2022-03-10 14:33:37 -0800
+Processing by MembersController#index as */*
+  Parameters: {"members"=>{"team_id"=>"1"}}
+No template found for MembersController#index, rendering head :no_content
+Completed 204 No Content in 13ms (ActiveRecord: 0.0ms | Allocations: 3457)
+
+
+Started GET "/members?members[team_id]=1" for ::1 at 2022-03-10 14:33:57 -0800
+Processing by MembersController#index as */*
+  Parameters: {"members"=>{"team_id"=>"1"}}
+No template found for MembersController#index, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 0.0ms | Allocations: 3273)
+
+
+Started GET "/members?members[team_id]=1" for ::1 at 2022-03-10 14:33:58 -0800
+Processing by MembersController#index as */*
+  Parameters: {"members"=>{"team_id"=>"1"}}
+No template found for MembersController#index, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 158)
+
+
+Started GET "/members?members[team_id]=1" for ::1 at 2022-03-10 14:34:09 -0800
+Processing by MembersController#index as */*
+  Parameters: {"members"=>{"team_id"=>"1"}}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 19ms (Views: 6.9ms | ActiveRecord: 7.3ms | Allocations: 6627)
+
+
+Started GET "/members?team_id=1" for ::1 at 2022-03-10 14:35:04 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 7816)
+
+
+
+NoMethodError - undefined method `WHERE' for #<Class:0x00007f968a25ef68>
+Did you mean?  when:
+  app/controllers/members_controller.rb:20:in `index'
+
+Started GET "/members?team_id=1" for ::1 at 2022-03-10 14:38:35 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 4716)
+
+
+
+NoMethodError - undefined method `Where' for Class:Class
+Did you mean?  when:
+  app/controllers/members_controller.rb:21:in `index'
+
+Started GET "/members?team_id=1" for ::1 at 2022-03-10 14:38:39 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1740)
+
+
+
+NoMethodError - undefined method `Where' for Class:Class
+Did you mean?  when:
+  app/controllers/members_controller.rb:21:in `index'
+
+Started GET "/members?team_id=1" for ::1 at 2022-03-10 14:38:50 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 7820)
+
+
+
+NoMethodError - undefined method `Where' for #<Class:0x00007f968ea05830>
+Did you mean?  when:
+  app/controllers/members_controller.rb:21:in `index'
+
+Started GET "/members?team_id=1" for ::1 at 2022-03-10 14:39:26 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:21:in `index'
+Completed 404 Not Found in 20ms (ActiveRecord: 7.2ms | Allocations: 7341)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Member with 'id'={:team_id=>"1"}:
+  app/controllers/members_controller.rb:21:in `index'
+
+Started GET "/members?team_id=1" for ::1 at 2022-03-10 14:42:21 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."team_id" = $1 LIMIT $2[0m  [["team_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 5.4ms | Allocations: 7177)
+
+
+Started GET "/members" for ::1 at 2022-03-10 14:42:34 -0800
+Processing by MembersController#index as */*
+  [1m[36mMember Load (0.7ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.7ms | Allocations: 1246)
+
+
+Started GET "/members?team_id=1" for ::1 at 2022-03-10 14:43:01 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 7982)
+
+
+
+NoMethodError - undefined method `find_all' for #<Class:0x00007f9689cd1f00>
+Did you mean?  find_each:
+  app/controllers/members_controller.rb:20:in `index'
+
+Started GET "/members?team_id=1" for ::1 at 2022-03-10 14:43:40 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."team_id" = $1 LIMIT $2[0m  [["team_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 24ms (Views: 0.5ms | ActiveRecord: 6.1ms | Allocations: 7178)
+
+
+Started GET "/members?team_id=2" for ::1 at 2022-03-10 14:43:48 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"2"}
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."team_id" = $1 LIMIT $2[0m  [["team_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 719)
+
+
+Started GET "/members?team_id=1" for ::1 at 2022-03-10 14:43:57 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."team_id" = $1 LIMIT $2[0m  [["team_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:20:in `index'
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 719)
+
+
+Started GET "/members?team_id=1" for ::1 at 2022-03-10 14:45:41 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 21ms (Views: 5.5ms | ActiveRecord: 7.0ms | Allocations: 6465)
+
+
+Started GET "/members?team_id=1" for ::1 at 2022-03-10 14:45:50 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 19ms (Views: 5.4ms | ActiveRecord: 5.9ms | Allocations: 6418)
+
+
+Started GET "/members?team_id=2" for ::1 at 2022-03-10 14:45:59 -0800
+Processing by MembersController#index as */*
+  Parameters: {"team_id"=>"2"}
+  [1m[36mMember Load (0.8ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."team_id" = $1[0m  [["team_id", 2]]
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.8ms | Allocations: 898)
+
+
+Started GET "/members?project_id=2" for ::1 at 2022-03-10 14:46:07 -0800
+Processing by MembersController#index as */*
+  Parameters: {"project_id"=>"2"}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."project_id" = $1[0m  [["project_id", 2]]
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 903)
+
+
+Started GET "/members?project_id=1" for ::1 at 2022-03-10 14:46:13 -0800
+Processing by MembersController#index as */*
+  Parameters: {"project_id"=>"1"}
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.5ms | Allocations: 1164)
+
+
+Started POST "/members" for ::1 at 2022-03-11 10:59:30 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name: first_name"=>"utoto", "last_name"=>"viu", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"1", "project_id"=>"1"}}
+Can't verify CSRF token authenticity.
+[31mUnpermitted parameter: :first_name: first_name. Context: { controller: MembersController, action: create, request: #<ActionDispatch::Request:0x00007f968edb6790>, params: {"members"=>{"first_name: first_name"=>"utoto", "last_name"=>"viu", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"1", "project_id"=>"1"}, "controller"=>"members", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (1.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 422 Unprocessable Entity in 212ms (Views: 0.6ms | ActiveRecord: 36.1ms | Allocations: 21276)
+
+
+Started POST "/members" for ::1 at 2022-03-11 10:59:38 -0800
+Processing by MembersController#create as */*
+  Parameters: {"members"=>{"first_name"=>"utoto", "last_name"=>"viu", "state"=>"state", "city"=>"city", "country"=>"country", "team_id"=>"1", "project_id"=>"1"}}
+Can't verify CSRF token authenticity.
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mMember Create (2.5ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "city", "state", "country", "created_at", "updated_at", "team_id", "project_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "utoto"], ["last_name", "viu"], ["city", "city"], ["state", "state"], ["country", "country"], ["created_at", "2022-03-11 18:59:38.523055"], ["updated_at", "2022-03-11 18:59:38.523055"], ["team_id", 1], ["project_id", 1]]
+  ↳ app/controllers/members_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:10:in `create'
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 4.2ms | Allocations: 3753)
+
+
+Started GET "/members" for ::1 at 2022-03-11 11:05:52 -0800
+Processing by MembersController#index as HTML
+  [1m[36mMember Load (0.8ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 82ms (Views: 76.3ms | ActiveRecord: 10.3ms | Allocations: 8507)
+
+
+Started GET "/members" for ::1 at 2022-03-11 11:06:46 -0800
+Processing by MembersController#index as HTML
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms | Allocations: 1373)
+
+
+Started GET "/teams" for ::1 at 2022-03-11 11:06:54 -0800
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:20:in `index'
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.6ms | Allocations: 2660)
+
+
+Started GET "/teams/1/members" for ::1 at 2022-03-11 11:07:02 -0800
+Processing by MembersController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."team_id" = $1[0m  [["team_id", 1]]
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.5ms | Allocations: 1324)
+
+
+Started GET "/teams/2/members" for ::1 at 2022-03-11 11:07:10 -0800
+Processing by MembersController#index as HTML
+  Parameters: {"team_id"=>"2"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."team_id" = $1[0m  [["team_id", 2]]
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 893)
+
+
+Started GET "/projects/2/members" for ::1 at 2022-03-11 11:07:16 -0800
+Processing by MembersController#index as HTML
+  Parameters: {"project_id"=>"2"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."project_id" = $1[0m  [["project_id", 2]]
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 898)
+
+
+Started GET "/projects/1/members" for ::1 at 2022-03-11 11:07:22 -0800
+Processing by MembersController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/controllers/members_controller.rb:27:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.5ms | Allocations: 1292)
+
+
+Started GET "/projects/1/members" for ::1 at 2022-03-11 11:11:53 -0800
+Processing by MembersController#index as HTML
+  Parameters: {"project_id"=>"1"}
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 4.3ms | Allocations: 6034)
+
+
+
+ActionView::MissingTemplate - Missing template members/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/Sai/Desktop/sprint-fwd-assignment/app/views"
+  * "/Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/actiontext-7.0.2.3/app/views"
+  * "/Users/Sai/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/actionmailbox-7.0.2.3/app/views"
+Did you mean?  api/members/index
+               rails/conductor/action_mailbox/inbound_emails/index
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/mailer
+               layouts/rails/conductor:
+  app/controllers/members_controller.rb:27:in `index'
+
+Started POST "/__better_errors/fe4c4ec019b6da6b/variables" for ::1 at 2022-03-11 11:11:53 -0800
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."project_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["project_id", 1], ["LIMIT", 11]]
+Started GET "/api/members" for ::1 at 2022-03-11 11:12:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/members"):
+  
+Started GET "/api/members" for ::1 at 2022-03-11 11:12:41 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/members"):
+  
+Started GET "/members" for ::1 at 2022-03-11 11:12:47 -0800
+Processing by MembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering members/index.html.erb within layouts/application
+  Rendered members/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 121)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 2609)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 3462)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SprintFwdAssignment</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= #javascript_importmap_tags %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>:
+  app/controllers/members_controller.rb:27:in `index'
+
+Started POST "/__better_errors/109b95ae0524cfaa/variables" for ::1 at 2022-03-11 11:12:48 -0800
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/members" for ::1 at 2022-03-11 11:52:45 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering members/index.html.erb within layouts/application
+  Rendered members/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 311)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3494)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms | Allocations: 12741)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SprintFwdAssignment</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= #javascript_importmap_tags %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>:
+  app/controllers/members_controller.rb:27:in `index'
+
+Started POST "/__better_errors/255cef3ef6e6d40e/variables" for ::1 at 2022-03-11 11:52:45 -0800
+  [1m[36mMember Load (0.9ms)[0m  [1m[34mSELECT "members".* FROM "members" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/members" for ::1 at 2022-03-11 11:54:08 -0800
+Processing by MembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering members/index.html.erb within layouts/application
+  Rendered members/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 120)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2594)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 3500)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SprintFwdAssignment</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= #javascript_importmap_tags %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>:
+  app/controllers/members_controller.rb:27:in `index'
+
+Started POST "/__better_errors/1b529d270dc2cb44/variables" for ::1 at 2022-03-11 11:54:08 -0800
+  [1m[36mMember Load (0.9ms)[0m  [1m[34mSELECT "members".* FROM "members" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/members" for ::1 at 2022-03-11 13:11:43 -0800
+Processing by MembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering members/index.html.erb within layouts/application
+  Rendered members/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2490)
+Completed 500 Internal Server Error in 3ms (Allocations: 2736)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>SprintFwdAssignment</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= #javascript_importmap_tags %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>:
+  app/controllers/members_controller.rb:27:in `index'
+
+Started POST "/__better_errors/bb099b01b8e4676b/variables" for ::1 at 2022-03-11 13:11:43 -0800
+  [1m[36mMember Load (1.0ms)[0m  [1m[34mSELECT "members".* FROM "members" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/__better_errors/bb099b01b8e4676b/eval" for ::1 at 2022-03-11 13:12:42 -0800
+  Rendering layout layouts/application.html.erb
+  Rendering members/index.html.erb within layouts/application
+  Rendered members/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 1772)
+Started GET "/members" for ::1 at 2022-03-11 13:14:14 -0800
+Processing by MembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering members/index.html.erb within layouts/application
+  Rendered members/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 122)
+  Rendered layout layouts/application.html.erb (Duration: 512.3ms | Allocations: 99715)
+Completed 200 OK in 515ms (Views: 514.3ms | ActiveRecord: 0.0ms | Allocations: 100654)
+
+
+Started GET "/members" for ::1 at 2022-03-11 13:14:25 -0800
+Processing by MembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering members/index.html.erb within layouts/application
+  Rendered members/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 124)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 1453)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 2373)
+
+
+Started GET "/members" for ::1 at 2022-03-11 13:15:30 -0800
+Processing by MembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering members/index.html.erb within layouts/application
+  Rendered members/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 119)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1426)
+Completed 200 OK in 11ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 5478)
+
+
