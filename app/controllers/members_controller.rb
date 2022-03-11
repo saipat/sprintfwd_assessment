@@ -29,8 +29,14 @@ class MembersController < ApplicationController
   end
 
   def show
-    @member = Member.find(params[:id])
-    render json: @member
+    @member = Member.find_by(id: params[:id])
+
+    unless @member
+      redirect_to members_url
+      return
+    end
+
+    render :show
   end
 
   def update
@@ -51,7 +57,7 @@ class MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:members).permit(:first_name, :last_name, :city, :state, :country, :team_id, :project_id)
+    params.require(:members).permit(:first_name, :last_name, :city, :state, :country, :team_id,:team_name, :project_id, :project_name)
   end
 
 end

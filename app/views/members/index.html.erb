@@ -1,1 +1,22 @@
 <h1>All members!</h1>
+
+
+  <ul>
+    <% @members.each do |member|  %>
+      <li>
+          Name: <%= member.first_name %> <%= member.last_name %>
+          <br>
+          City: <%= member.city %>
+          <br>
+          State: <%= member.state %>
+          <br>
+          Country: <%= member.country %>
+          <br>
+          Team: <%= member.team_name %>
+          <br>
+          Project: <%= member.project_name %>
+
+      </li>
+      <br>
+    <% end %>
+  </ul>

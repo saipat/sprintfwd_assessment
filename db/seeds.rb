@@ -38,7 +38,9 @@ member1  = Member.create!(
   state: 'Oh!',
   country: 'Cfusion',
   team_id: team1.id,
+  team_name: team1.name,
   project_id: project1.id,
+  project_name: project1.name,
   id: 1
 )
 
@@ -49,6 +51,8 @@ member2  = Member.create!(
   state: 'Oh!',
   country: 'Cfusion',
   team_id: team2.id,
+  team_name: team2.name,
   project_id: project2.id,
+  project_name: project2.name,
   id: 2
 )

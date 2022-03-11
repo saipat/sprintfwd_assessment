@@ -17,13 +17,18 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
-    render json: @teams
+    render :index
   end
 
   def show
-    @team = Team.find(params[:id])
+    @team = Team.find_by(id: params[:id])
 
-    @member = Member.find_by_sql([
+    unless @team
+      redirect_to teams_url
+      return
+    end
+
+    @members = Member.find_by_sql([
       'SELECT
         *
       FROM
@@ -32,7 +37,7 @@ class TeamsController < ApplicationController
         team_id = ?', @team.id
     ])
 
-    render json: @member
+    render :show
   end
 
   def update

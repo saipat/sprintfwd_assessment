@@ -17,11 +17,16 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    render json: @projects
+    render :index
   end
 
   def show
-    @project = Project .find(params[:id])
+    @project = Project .find_by(id: params[:id])
+
+    unless @project
+      redirect_to projects_url
+      return
+    end
 
     @members = Member.find_by_sql([
       'SELECT
@@ -32,7 +37,8 @@ class ProjectsController < ApplicationController
         project_id = ?', @project.id
     ])
 
-    render json: @members
+    render :show
+
   end
 
   def update
