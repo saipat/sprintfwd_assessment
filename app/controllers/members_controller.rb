@@ -51,8 +51,13 @@ class MembersController < ApplicationController
 
   def destroy
       @member = Member.find(params[:id])
+
+      unless @members
+        redirect_to members_url
+      end
+
       @member.destroy
-      render json: ["Selected member is deleted!"]
+
   end
 
   private

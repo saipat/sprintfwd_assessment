@@ -4,7 +4,8 @@
   <ul>
     <% @members.each do |member|  %>
       <li>
-          Name: <%= member.first_name %> <%= member.last_name %>
+
+           <%= member.first_name %> <%= member.last_name %>
           <br>
           City: <%= member.city %>
           <br>
@@ -15,6 +16,9 @@
           Team: <%= member.team_name %>
           <br>
           Project: <%= member.project_name %>
+          <br>
+          Id: <%= member.id %>
+
 
       </li>
       <br>
